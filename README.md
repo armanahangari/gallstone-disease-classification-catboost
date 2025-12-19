@@ -1,12 +1,8 @@
 # Gallstone Diagnosing Using CatBoost and Feature Selection
-
-This project implements a binary machine learning classification pipeline for diagnosing gallstone disease based on clinical and biochemical features. The dataset is sourced from the UCI Machine Learning Repository (https://archive.ics.uci.edu/dataset/1150/gallstone-1) and contains patient-level attributes relevant to gallstone formation.
-
-Data preprocessing:
-The dataset is clean and well-structured, requiring minimal preprocessing. The target variable (Gallstone Status) is encoded into numerical form when necessary. Feature relevance is evaluated using ANOVA F-score analysis, and features are divided into high-importance and low-importance groups. To retain information from weaker predictors, a composite feature is constructed by aggregating low-score features, resulting in a compact and informative final feature set.
-
-Modeling approach:
-The project employs a CatBoostClassifier, a gradient boosting algorithm optimized for tabular data, to model complex nonlinear relationships without extensive feature scaling or transformation. The model is trained using a reproducible train-test split and configured to balance predictive performance and generalization.
-
-Evaluation:
-Model performance is assessed using multiple metrics, including accuracy, precision, recall, F1-score, and ROC-AUC, providing a comprehensive evaluation suitable for medical classification tasks.
+This project develops a binary machine learning classification framework for predicting gallstone disease status using structured clinical and biochemical data. The dataset is obtained from the UCI Machine Learning Repository (https://archive.ics.uci.edu/dataset/1150/gallstone-1) and consists of patient-level attributes relevant to gallstone formation and diagnosis. The primary objective is to evaluate the effectiveness of a gradient boosting approach for medical diagnosis while maintaining interpretability through statistical feature analysis.
+* Data preprocessing and feature engineering:
+The Gallstone dataset is clean and well-organized, with no missing values or significant noise, allowing for minimal preprocessing. The target variable (Gallstone Status) is encoded into numerical format when required to ensure compatibility with machine learning algorithms. Feature relevance is assessed using ANOVA F-score analysis, which measures the statistical association between each feature and the target variable. Based on a predefined threshold, features are categorized into high-importance and low-importance groups. To preserve the collective contribution of lower-ranked features, a composite feature is created by aggregating these attributes, resulting in a reduced yet informative feature representation.
+* Modeling approach:
+The classification task is performed using a CatBoostClassifier, a gradient boosting algorithm specifically designed for structured tabular data. CatBoost is selected for its ability to model complex nonlinear relationships while remaining robust to feature scaling and correlated predictors. The model is trained using a reproducible train-test split and carefully tuned hyperparameters to achieve stable performance and generalization.
+* Evaluation:
+Model performance is evaluated on the held-out test set using multiple metrics, including accuracy, precision, recall, F1-score, and ROC-AUC. This comprehensive evaluation framework enables a balanced assessment of classification quality and is particularly suitable for medical diagnosis scenarios, where both predictive accuracy and class discrimination are critical.
