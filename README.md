@@ -1,4 +1,4 @@
-# Gallstone Diagnosis Using CatBoost and Feature Selection
+# Gallstone Diagnosing Using CatBoost and Feature Selection
 
 This project implements a binary machine learning classification pipeline for diagnosing gallstone disease based on clinical and biochemical features. The dataset is sourced from the UCI Machine Learning Repository (https://archive.ics.uci.edu/dataset/1150/gallstone-1) and contains patient-level attributes relevant to gallstone formation.
 
