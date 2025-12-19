@@ -1,3 +1,5 @@
+Gallstone Disease Classification Using CatBoost and Statistical Feature Selection
+
 This project implements a binary classification pipeline for predicting gallstone disease status using the gallstone dataset from the UCI Machine Learning        Repository (https://archive.ics.uci.edu/dataset/1150/gallstone-1). The objective is to evaluate the effectiveness of CatBoost, combined with statistical feature  selection, in distinguishing between individuals with and without gallstone disease based on clinical and biochemical attributes.
 
   Data preprocessing and feature engineering
