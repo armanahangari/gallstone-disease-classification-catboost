@@ -1,8 +1,11 @@
-# Gallstone Diagnosing Using CatBoost and Feature Selection
-This project develops a binary machine learning classification framework for predicting gallstone disease status using structured clinical and biochemical data. The dataset is obtained from the UCI Machine Learning Repository (https://archive.ics.uci.edu/dataset/1150/gallstone-1) and consists of patient-level attributes relevant to gallstone formation and diagnosis. The primary objective is to evaluate the effectiveness of a gradient boosting approach for medical diagnosis while maintaining interpretability through statistical feature analysis.
-* Data preprocessing and feature engineering:
-The Gallstone dataset is clean and well-organized, with no missing values or significant noise, allowing for minimal preprocessing. The target variable (Gallstone Status) is encoded into numerical format when required to ensure compatibility with machine learning algorithms. Feature relevance is assessed using ANOVA F-score analysis, which measures the statistical association between each feature and the target variable. Based on a predefined threshold, features are categorized into high-importance and low-importance groups. To preserve the collective contribution of lower-ranked features, a composite feature is created by aggregating these attributes, resulting in a reduced yet informative feature representation.
-* Modeling approach:
-The classification task is performed using a CatBoostClassifier, a gradient boosting algorithm specifically designed for structured tabular data. CatBoost is selected for its ability to model complex nonlinear relationships while remaining robust to feature scaling and correlated predictors. The model is trained using a reproducible train-test split and carefully tuned hyperparameters to achieve stable performance and generalization.
-* Evaluation:
-Model performance is evaluated on the held-out test set using multiple metrics, including accuracy, precision, recall, F1-score, and ROC-AUC. This comprehensive evaluation framework enables a balanced assessment of classification quality and is particularly suitable for medical diagnosis scenarios, where both predictive accuracy and class discrimination are critical.
+# Gallstone Disease Prediction Using CatBoost and Composite Feature Optimization
+
+This project predicts gallstone disease from clinical data, including bioelectrical impedance measurements and routine laboratory results. The data comes from the public [UCI Gallstone dataset](https://archive.ics.uci.edu/dataset/1150/gallstone-1), which contains 319 patients with 38 features collected at a hospital in Ankara. The aim is to evaluate whether keeping the most informative features and merging the weaker ones into a single composite feature improves a gradient boosting classifier.
+
+- Data preprocessing and feature engineering: The dataset is clean and balanced, so no further preprocessing was needed. All features are ranked with ANOVA F-scores, and a threshold of 0.9 is applied. Features above it are kept individually, and the lower-scoring ones are averaged into a single composite feature, `LowScore_Composite`.
+- Modeling approach: A CatBoost classifier is trained on the resulting feature set with 500 iterations, a learning rate of 0.05, a maximum depth of 6, and the Logloss objective with AUC as the evaluation metric. The data is split 75/25 into training and test sets with a fixed random seed.
+- Evaluation: On the held-out test set the model reaches an accuracy of 88.75%, a precision of 90.00%, a recall of 87.80%, an F1-score of 88.89%, and an AUC of 93.81%.
+
+## Paper
+
+Arman Ahangari Kiasari, "Improving Gallstone Disease Prediction through Composite Feature Optimization with CatBoost," 2nd International Biennial Conference on Advances in Artificial Intelligence and Data Science (IBAAIDS), IEEE, 2026. [doi:10.1109/IBAAIDS66771.2026.11567395](https://doi.org/10.1109/IBAAIDS66771.2026.11567395)
